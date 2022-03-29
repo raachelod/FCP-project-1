@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlip.pylpot as plt
 
 #DATASETS OF SHIP MOVEMENTS 15TH DAY OF EVERY MONTH 2019
 JAN2019 = pd.read_csv('AIS_2019_01_15.csv')
@@ -36,3 +37,6 @@ print(type(NOV2019))
 
 DEC2019 = pd.read_csv('AIS_2019_12_15.csv')
 print(type(DEC2019))
+
+p = 
+
