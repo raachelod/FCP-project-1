@@ -13,11 +13,11 @@ DEC2019 = DEC2019[['Org Code', 'Parent Org', 'Org name', 'Number of A&E attendan
 DEC2019 = DEC2019.sort_values(by = 'Org Code')
 
 JAN2020= pd.read_csv('jan-2020.csv')
-JAN2020 = JAN2020[['Org Code', 'Parent Org', 'Org name', 'Number of A&E attendances Other A&E Department']]
+JAN2020 = JAN2020[['Org Code', 'Number of A&E attendances Other A&E Department']]
 JAN2020 = JAN2020.sort_values(by = 'Org Code')
 
 FEB2020= pd.read_csv('feb-2020.csv')
-FEB2020 = FEB2020[['Org Code', 'Parent Org', 'Org name', 'Number of A&E attendances Other A&E Department']]
+FEB2020 = FEB2020[['Org Code', 'Number of A&E attendances Other A&E Department']]
 FEB2020 = FEB2020.sort_values(by = 'Org Code')
 
 MAR2020= pd.read_csv('mar-2020.csv')
@@ -75,5 +75,10 @@ MAR2021 = MAR2021.sort_values(by = 'Org Code')
 print(DEC2019.head())
 
 print(JAN2020.head())
+
+#merging datasets to single dataset
+DEC2019JAN2020 = pd.merge(DEC2019, JAN2020, on = 'Org Code', suffixes=('_DEC2019','_JAN2020'))
+print(DEC2019JAN2020.head())
+
 
 
