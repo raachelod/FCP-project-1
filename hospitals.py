@@ -33,10 +33,10 @@ APR21APR22 = pd.merge(APR21NOV21, NOV21APR22, on= 'Name')
 APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name' ) #single data frame over 2 years
 print(APR20APR22)
 
-x = APR20APR22[['Name']]
-y = APR20APR22[['20-Mar-20']]
-fig1, ax1 = plt.subplots()
-ax1.plot(x, y)
+#x = APR20APR22[['Name']]
+#y = APR20APR22[['20-Mar-20']]
+#fig1, ax1 = plt.subplots()
+#ax1.plot(x, y)
 
 
 #hospitalAdmissions = 
