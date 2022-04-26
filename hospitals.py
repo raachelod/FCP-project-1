@@ -7,8 +7,9 @@ Created on Tue Apr 19 15:11:57 2022
 """
 
 import pandas as pd
+#import numpy as np
 #import argparse
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 #from matplotlib.animaion import FuncAnimation
 
 
@@ -31,5 +32,27 @@ APR21APR22 = pd.merge(APR21NOV21, NOV21APR22, on= 'Name')
 
 APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name' ) #single data frame over 2 years
 print(APR20APR22)
+
+x = APR20APR22[['Name']]
+y = APR20APR22[['20-Mar-20']]
+fig1, ax1 = plt.subplots()
+ax1.plot(x, y)
+
+
+#hospitalAdmissions = 
+#def main(args):
+#    parser = argparse.ArgumentParser(description= 'Animate UK hospital admissions')
+#   parser.add_argument('--region', metavar = 'R', type=str, default = None, help = 'Hospital admissions in R region')
+ #   parser.add_argument('--plot', action = 'store_true', help = 'Generate plots instead of animation')
+  #  parser.add_argument('--file', metavar = 'N', type=str, default=None, help='Filename to save to instead of showing on screen')
+   # args = parser.parse_args(args)
+    
+
+    
+
+
+
+
+
 
 
