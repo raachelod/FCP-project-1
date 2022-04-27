@@ -7,7 +7,7 @@ Created on Tue Apr 19 15:11:57 2022
 """
 
 import pandas as pd
-#import numpy as np
+import numpy as np
 #import argparse
 import matplotlib.pyplot as plt
 #from matplotlib.animaion import FuncAnimation
@@ -31,12 +31,28 @@ APR21APR22 = pd.merge(APR21NOV21, NOV21APR22, on= 'Name')
 
 
 APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name' ) #single data frame over 2 years
-print(APR20APR22)
+#print(APR20APR22)
 
-#x = APR20APR22[['Name']]
-#y = APR20APR22[['20-Mar-20']]
+
+for index, row in APR20APR22.iterrows():
+    plt.plot(row)
+    plt.show()
+
+row = APR20APR22.loc[APR20APR22["Name"]     =="ENGLAND"]
+row.to_numpy()
+y = row.to_numpy()
+y = y[1:-1]
+x = [x for x in range(0,len(y))]
+print(y)
+print(x)
+
+plt.plot(x,y)
+print(len(y))
+print(len(x))
+
+
 #fig1, ax1 = plt.subplots()
-#ax1.plot(x, y)
+#ax1.plot(APR20APR22[['Name']], APR20APR22[['20-Mar-20']])
 
 
 #hospitalAdmissions = 
