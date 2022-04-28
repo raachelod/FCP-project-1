@@ -36,17 +36,7 @@ APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name' ) #single data frame ove
 
 print(APR20APR22)
 
-#plotting hospital admissions in England during covid
-#x = list(APR20APR22.columns) #x = every month across covid
-#x.remove('Name')
-
-
-#y = list(APR20APR22.loc[0,:]) #y = hospital admissions
-#y.remove('ENGLAND')
-
-
-#used to save data file created in python to csv file to then use in other scripts
-#APR20APR22.to_csv('/Users/rachelodwyer/Desktop/year1.2/FurtherComputing/FCP-project-1/APR20APR22.csv')
+#saving data frame created on python as csv file to use in seperate scripts and view as file
 
 APR20APR22.to_csv('/Users/rachelodwyer/Desktop/year1.2/FurtherComputing/FCP-project-1/merged_data.csv')
  
