@@ -16,10 +16,10 @@ APR21NOV21 = pd.read_csv('Ap21-No21-Table.csv')
 NOV21APR22 = pd.read_csv('No21-Ap22-Table.csv')
 
 #Selecting data from only 20th of every month 
-APR20AUG20 = APR20AUG20[['Name', '20-Mar-20','20-Apr-20', '20-May-20', '20-Jun-20', '20-Jul-20', ]]
-AUG20APR21 = AUG20APR21[['Name', '20-Aug-20','20-Sep-20', '20-Oct-20', '20-Nov-20', '20-Dec-20','20-Jan-21', '20-Feb-21', '20-Mar-21' ]]
-APR21NOV21= APR21NOV21[['Name', '20-Apr-21', '20-May-21', '20-Jun-21', '20-Jul-21', '20-Aug-21','20-Sep-21']]
-NOV21APR22 = NOV21APR22[['Name','20-Oct-21', '20-Nov-21', '20-Dec-21','20-Jan-22', '20-Feb-22', '20-Mar-22' ]]
+#APR20AUG20 = APR20AUG20[['Name', '20-Mar-20','20-Apr-20', '20-May-20', '20-Jun-20', '20-Jul-20', ]]
+#AUG20APR21 = AUG20APR21[['Name', '20-Aug-20','20-Sep-20', '20-Oct-20', '20-Nov-20', '20-Dec-20','20-Jan-21', '20-Feb-21', '20-Mar-21' ]]
+#APR21NOV21= APR21NOV21[['Name', '20-Apr-21', '20-May-21', '20-Jun-21', '20-Jul-21', '20-Aug-21','20-Sep-21']]
+#NOV21APR22 = NOV21APR22[['Name','20-Oct-21', '20-Nov-21', '20-Dec-21','20-Jan-22', '20-Feb-22', '20-Mar-22' ]]
 
 #Merging datasets 
 APR20APR21 = pd.merge(APR20AUG20, AUG20APR21, on= 'Name')
@@ -27,23 +27,28 @@ APR21APR22 = pd.merge(APR21NOV21, NOV21APR22, on= 'Name')
 
 APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name' ) #single data frame over 2 years
 
+#print(APR20APR22)
+
+
+#print(APR20APR22.loc[[0]])
+
+#print(APR20APR22.loc[[0]])
+
 print(APR20APR22)
 
-
-print(APR20APR22.loc[[0]])
-
 #plotting hospital admissions in England during covid
-x = list(APR20APR22.columns) #x = every month across covid
-x.remove('Name')
+#x = list(APR20APR22.columns) #x = every month across covid
+#x.remove('Name')
 
 
-y = list(APR20APR22.loc[0,:]) #y = hospital admissions
-y.remove('ENGLAND')
+#y = list(APR20APR22.loc[0,:]) #y = hospital admissions
+#y.remove('ENGLAND')
 
 
 #used to save data file created in python to csv file to then use in other scripts
 #APR20APR22.to_csv('/Users/rachelodwyer/Desktop/year1.2/FurtherComputing/FCP-project-1/APR20APR22.csv')
 
+APR20APR22.to_csv('/Users/rachelodwyer/Desktop/year1.2/FurtherComputing/FCP-project-1/merged_data.csv')
  
 
 
