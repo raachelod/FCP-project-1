@@ -7,6 +7,10 @@ Created on Sun Apr 17 12:10:42 2022
 """
 
 import pandas as pd
+import numpy as np
+
+import matplotlib.pyplot as plt
+
 #hosptial admissions across UK hospitals every month 
 DEC2019 = pd.read_csv('dec-2019.csv')
 DEC2019 = DEC2019[['Org Code', 'Parent Org', 'Org name', 'Number of A&E attendances Other A&E Department']]
@@ -72,13 +76,27 @@ MAR2021= pd.read_csv('mar-2021.csv')
 MAR2021 = MAR2021[['Org Code', 'Parent Org', 'Org name', 'A&E attendances Other A&E Department']]
 MAR2021 = MAR2021.sort_values(by = 'Org Code')
 
-print(DEC2019.head())
 
+
+print(DEC2019.head())
 print(JAN2020.head())
 
 #merging datasets to single dataset
 DEC2019JAN2020 = pd.merge(DEC2019, JAN2020, on = 'Org Code', suffixes=('_DEC2019','_JAN2020'))
 print(DEC2019JAN2020.head())
 
+x = DEC2019[['Org Code']].head()
+y = DEC2019[['Number of A&E attendances Other A&E Department']
+fig1, ax1= plt.bar(x, y)
+plt.xlabel('Hospital')
+plt.ylabel('Number of admissions')
+ax1.plot(x,y)
 
 
+#ax1 = DEC2019.plot.line(x= 'Org Code', y= 'Number of A&E attendances Other A&E Department', c ='DarkBlue')
+#x = 
+#y =
+#plt.title('DEC 2019 Hospital admissions')
+#plt.xlabel('Hospital')
+#plt.ylabel('Number of admissions'')
+#plt.scatter(x, y)
