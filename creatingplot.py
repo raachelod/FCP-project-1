@@ -7,12 +7,13 @@ Created on Thu Apr 28 18:13:07 2022
 """
 import pandas as pd
 import matplotlib.pyplot as plt
+#import argparse 
 
 #reading csv files 
-APR20AUG20 = pd.read_csv('Ap20-Au20-Table.csv', index_col = 'Name', parse_dates= True, thousands= ',')
-AUG20APR21 = pd.read_csv('Au20-Ap21-Table.csv', index_col = 'Name', parse_dates= True, thousands= ',')
-APR21NOV21 = pd.read_csv('Ap21-No21-Table.csv', index_col = 'Name', parse_dates= True, thousands= ',')
-NOV21APR22 = pd.read_csv('No21-Ap22-Table.csv', index_col = 'Name', parse_dates= True, thousands= ',')
+APR20AUG20 = pd.read_excel('Apr20-Aug20.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+AUG20APR21 = pd.read_excel('Aug20-Apr21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+APR21NOV21 = pd.read_excel('Ap21-Aug21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+NOV21APR22 = pd.read_excel('Aug21-Apr22.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
 
 
 
@@ -23,6 +24,7 @@ APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name')
 
 print(APR20APR22)
 
+#make this a class - different types of plots
 #plotting data
 APR20APR22 = APR20APR22.T
 england_series = APR20APR22['ENGLAND']
@@ -41,12 +43,20 @@ southeast = APR20APR22['South East']
 southeast.plot(label = 'South East')
 southwest = APR20APR22['South West']
 southwest.plot(label = 'South West')
+plt.title('Hospital admissions during COVID-19 across UK')
 plt.xlabel('Months during COVID-19')
 plt.ylabel('Number of hospital admissions')
-plt.title('Hospital admissions during COVID-19 across UK')
 plt.legend()
-plt.show()
+
+#different functions to present data differently 
+    
+#def animate():
+ #   england_series.append()
 
 #make this an option to save figure
-#plt.savefig('linegraph.png')
+#parser = argparse.ArgumentParser(description='Animate an epidemic')
+#parser.add_argument('--file', metavar='N', type=str, default=None,
+ #                       help='Filename to save to instead of showing on screen')
+
+#plt.savefig('linegraph.png', format = 'png', dpi = 100)
 
