@@ -75,12 +75,6 @@ anim =FuncAnimation(fig, animate, init_func=init,
                                frames=len(t_span)-1, interval=20, blit=True)
 plt.show()
 
-filename = input("If you would like to save this animation, type your chosen filename. If not type 0.")
 
-if filename = "0":
-    plt.show()
-    
-else:
-    plt.savefig('"filename".pdf')
 
 ## 
