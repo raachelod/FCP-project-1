@@ -11,7 +11,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import pandas as pd
-
+import ffmpeg
 
 # Finding itinital population N
 N = int(input("Type your inital population, N:")) #population - command line argument
@@ -58,11 +58,6 @@ for spine in ('top', 'right', 'bottom', 'left'):
 X = np.empty((3,len(t_span)))*np.nan
 X[:,0] = (S0,I0,R0)
 
-#def dataframe(): #trying to put the data into a data frame
-# rng = pd.date_range('19-03-2020', periods = 748, freq= 'D')
-# df = ({'Date':rng, 'No. hospital admissions': 'Infected'})
-# df.to_csv = ('FCP-project-1/simulation_data.csv')
-# print(df)
 
 # initialization function: plot the background of each frame
 def init():
@@ -83,14 +78,4 @@ animation =FuncAnimation(fig, animate, init_func=init,
                                frames=len(t_span)-1, interval=20, blit=True)
 
 
-#creating grid animation 
-#potentially create barchart
-#create a specific animation that simulates the specific values from 'England' data 
-
-
-animation.save('England_simulated_animation.gif')
 plt.show()
-
-#dataframe()
-
-## 
