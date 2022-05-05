@@ -9,7 +9,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 #import argparse 
 
-#reading csv files 
+#reading excel files 
 APR20AUG20 = pd.read_excel('Apr20-Aug20.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
 AUG20APR21 = pd.read_excel('Aug20-Apr21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
 APR21NOV21 = pd.read_excel('Ap21-Aug21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
@@ -23,6 +23,9 @@ APR21APR22 = pd.merge(APR21NOV21, NOV21APR22, on= 'Name')
 APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name')
 
 print(APR20APR22)
+
+#saving the merged data file to reuse and/or view seperately 
+#APR20APR22.to_csv('merged_data.csv')
 
 #make this a class - different types of plots
 #plotting data
@@ -43,20 +46,18 @@ southeast = APR20APR22['South East']
 southeast.plot(label = 'South East')
 southwest = APR20APR22['South West']
 southwest.plot(label = 'South West')
+plot1 = plt.figure(1)
 plt.title('Hospital admissions during COVID-19 across UK')
 plt.xlabel('Months during COVID-19')
 plt.ylabel('Number of hospital admissions')
 plt.legend()
 
-#different functions to present data differently 
-    
-#def animate():
- #   england_series.append()
 
-#make this an option to save figure
-#parser = argparse.ArgumentParser(description='Animate an epidemic')
-#parser.add_argument('--file', metavar='N', type=str, default=None,
- #                       help='Filename to save to instead of showing on screen')
+plot2 = plt.figure(2)
+plt.plot(southwest, color = 'grey' )
+plt.title('Hospital admissions during COVID-19 in South West England')
+plt.xlabel('Months during COVID-19')
+plt.ylabel('Number of hospital admissions')
+plt.savefig('southwest_data.pdf')
 
-#plt.savefig('linegraph.png', format = 'png', dpi = 100)
-
+plt.show()
