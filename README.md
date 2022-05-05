@@ -17,7 +17,8 @@ clone the repository
 open a terminal, 
 python simulation.py, 
 follow the instructions, 
-{
-
+{5600 for engand population, 52 initial}
+{560 for south west, 1 initial}
 
 ### for the NHS data line graph
+
