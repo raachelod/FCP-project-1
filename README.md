@@ -30,6 +30,12 @@ This file has no oppurtunity for inputted values as it just reads data from offi
 It then follows to exctract the specific data from the different rows (Names of region) and plots them as individual lines on the same graph. 
 
 ### For the pie chart visualisation of data: (piechart.py)
+Open a terminal
+Run python piechart.py
+This will produe 4 pie charts which represents total number of hospitalizations from Covid-19 in England across 4 time periods: a) April 2020 to August 2020, b) August 2020 to April 2021, c) April 2021 to August 2021 and d) August 2021 to April 2022.
+A 5th graph will be produced which is in the form of a nested piechart and represents yearly hospitalizations from Covid-19 across 2 time periods: a) 2020 to 2021 and b) 2021 to 2022. The outer piechart represents total number of hospitalizations from Covid-19 in England for that year while the inner piechart reflects total hospitalizations from Covid-19 by region for that year.
+The data used in these graphs is a result of summing up daily hospitalization data in order to calculate, and later graph, monthly and yearly hospitalizations. In our data, the data is split into total data for England and data by region.
+This file consists of imported data and thus, has no opportunity for inputted values. The code extracts the data, analyzes it and sums it in order to produce the graphs.
 
 ### merged_data.csv
 This is the merged data frame of the 4 individual csv files 'Apr20-Aug20.csv','Aug20-Apr21.csv', 'Ap21-Aug21.csv', 'Aug21-Apr22.csv' (which can all be accessed on the repository) that has been converted into a csv file. 
