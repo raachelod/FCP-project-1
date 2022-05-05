@@ -52,9 +52,9 @@ months = ['August 2020', 'September 2020', 'October 2020', 'November 2020', 'Dec
 colors = pplt.colors()
 colors = ("pink2", "violet2", "blue2", "lime3", "indigo2", "peach", "pastel blue", "light violet", "lime olive")
 fig_2, y = plt.plot(figsize = (10,7))
-fig_2 = y.pie(data_2
-              labels = months
-              colors = colors)
+fig_2 = y.pie(data_2,
+              label = 'months',
+              color = colors)
 y.legend(title = "Month",
            loc = "centre left")
 y.title("Hospitalizations by Month in England from August 2020 to April 2021")
