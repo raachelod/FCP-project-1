@@ -23,13 +23,12 @@ APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name')
 print(APR20APR22)
 
 #saving the merged data file to reuse and/or view seperately 
-APR20APR22.to_csv('merged_data.csv')
+#APR20APR22.to_csv('merged_data.csv')
 
 #make this a class - different types of plots
 #plotting data
 APR20APR22 = APR20APR22.T
-england_series = APR20APR22['ENGLAND']
-england_series.plot(label = 'England (total)')
+england = APR20APR22['ENGLAND']
 east_england = APR20APR22['East of England']
 east_england.plot(label = 'East England')
 london = APR20APR22['London']
@@ -49,13 +48,19 @@ plt.title('Hospital admissions during COVID-19 across UK')
 plt.xlabel('Months during COVID-19')
 plt.ylabel('Number of hospital admissions')
 plt.legend()
-   
+
 plot2 = plt.figure(2)
+plt.plot(england, color = 'blue')
+plt.title('Hospital admissions during COVID-19 in England')
+plt.xlabel('Months during COVID-19')
+plt.ylabel('Number of hospital admissions')
+   
+plot3 = plt.figure(3)
 plt.plot(southwest, color = 'grey' )
 plt.title('Hospital admissions during COVID-19 in South West England')
 plt.xlabel('Months during COVID-19')
 plt.ylabel('Number of hospital admissions')
-plt.savefig('southwest_data.pdf')
+#plt.savefig('southwest_data.pdf')
 
 
 plt.show()
