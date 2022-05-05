@@ -35,3 +35,30 @@ def deriv(y, N, contact_rate, recovery_rate):
     return np.array([dSdt, dIdt, dRdt])
 simuates how an epidemic unfolds using differential equaions. 
 (TALK MORE ABOUT THIS)
+
+merged_data.csv
+This is the merged data file which has been produced and saved in the creatingplot.py file.
+
+southwest_data.pdf
+This is a saved copy of the graph showing data from specifically the South West region of the UK. This graph is used to compare with the animation produced by our simulation. Clearly it shows that there are many limitations to our model, as it lacks the fluxuations over time and noticable peaks in admissions. This could be rectified by spending more time complicating our model and adding more changing variables to account for changing circumstances that would affect the rate of spread in the real world. (i.e our simulation doesn't account for the lockdown period and the changes in freedom rules which impacted the spread.)
+
+
+piechart.py
+
+This file includes several pie charts: 4 pie charts based on monthly data and 1 nested piechart.
+The 4 pie charts are a visual representation of total hospitalizations in England by month:
+a) Pie Chart #1 = April 2020 to August 2020
+b) Pie Chart #2 = August 2020 to April 2021
+c) Pie Chart #3 = April 2021 to August 2021
+d) Pie Chart #4 = August 2021 to April 2022
+We imported proplot in order to have a larger colorscale for piecharts that had more variables (e.g. more months in the data).
+
+The nested piechart represents hospitalizations by year by region. The outer piechart is the total hospitalizations for the year while the inner piechart is the number of hospitalizations by region for that given year.
+We merged the data in order to calculate the number of hospitalizations for the whole year.
+
+
+
+
+
+
+

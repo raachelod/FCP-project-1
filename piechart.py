@@ -6,6 +6,20 @@ Created on Thu May  5 14:37:39 2022
 @author: rachelodwyer
 """
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import proplot as pplt
+
+
+
+#reading excel files 
+APR20AUG20 = pd.read_excel('Apr20-Aug20.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+AUG20APR21 = pd.read_excel('Aug20-Apr21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+APR21AUG21 = pd.read_excel('Ap21-Aug21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+AUG21APR22 = pd.read_excel('Aug21-Apr22.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+
+
+
 
 #pie chart of data (england)
 
@@ -52,9 +66,9 @@ months = ['August 2020', 'September 2020', 'October 2020', 'November 2020', 'Dec
 colors = pplt.colors()
 colors = ("pink2", "violet2", "blue2", "lime3", "indigo2", "peach", "pastel blue", "light violet", "lime olive")
 fig_2, y = plt.plot(figsize = (10,7))
-fig_2 = y.pie(data_2
-              labels = months
-              colors = colors)
+fig_2 = y.pie(data_2,
+              label = 'months',
+              color = colors)
 y.legend(title = "Month",
            loc = "centre left")
 y.title("Hospitalizations by Month in England from August 2020 to April 2021")

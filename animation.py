@@ -17,11 +17,6 @@ N = int(input("Type your inital population, N")) #population - command line argu
 # Initial number of infected and recovered individuals, I0 and R0.
 I0 = int(input("How many people initally infected?"))  #infection - command line argument
 
- 
-# Total population, N.
-N = int(input("Type your inital population, N:"))
-# Initial number of infected and recovered individuals, I0 and R0.
-I0 = int(input("How many people initally infected?:"))
 
 R0 = 0
 # Everyone else, S0, is susceptible to infection initially.
