@@ -67,6 +67,8 @@ For example we could have the infection rate working in waves by making the cont
 Furthermore to make our code more readable and adaptable, next time we could compile particular functions into classes which could then be accessed individually to add complexity and edit when desired. 
 
 The main issue in our project was that we focused too much time on collecting data, and figuring out how to present it accordingly, before realising this wasn't the main aim of the task. This left limited time to work on our simulation and therefore resulted in it lacking multiple layers to analyse. 
+Furthermore the raw data we have used is explicitly hospital admissions of patients with COVID-19, whereas our simulation only computes the number of infections. Although this produces a difference in the actual values generated, the general trend and pattern of the plot should remain generally similar. 
+
 
 
 
