@@ -31,3 +31,8 @@ It then follows to exctract the specific data from the different rows (Names of 
 
 ### For the pie chart visualisation of data: (piechart.py)
 
+### merged_data.csv
+This is the merged data frame of the 4 individual csv files 'Apr20-Aug20.csv','Aug20-Apr21.csv', 'Ap21-Aug21.csv', 'Aug21-Apr22.csv' (which can all be accessed on the repository) that has been converted into a csv file. 
+
+### southwest_data.pdf
+This is the saved graph plotting only the hospital admissions in the South West region. 
