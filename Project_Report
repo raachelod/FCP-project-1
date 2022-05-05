@@ -35,6 +35,10 @@ def deriv(y, N, contact_rate, recovery_rate):
 simuates how an epidemic unfolds using differential equaions.
 Our aim is to compare the our simulated model to actual data by specifically choosing inputs that reflect the state of the 'South West' region of the UK, i.e the total population of this region at the beginning of 2020 and the initial number of cases from our data frame. 
 This hopes to show how accurate our model is when applying it to the Bristol area. 
+Next we label the different lines we want to plot and set up the format of the graph. 
+The '__init__' function sets up the inital background for the frames in our animation, which we have kept relatively simple. 
+The 'animate' function follows to create the animation using the outputs from the 'deriv' differential equations. 
+
 
 merged_data.csv :
 This is the merged data file which has been produced and saved in the creatingplot.py file.
