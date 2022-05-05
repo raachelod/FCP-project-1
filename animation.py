@@ -10,11 +10,12 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+import pandas as pd
  
 # Total population, N.
-N = int(input("Type your inital population, N"))
+N = int(input("Type your inital population, N:"))
 # Initial number of infected and recovered individuals, I0 and R0.
-I0 = int(input("How many people initally infected?"))
+I0 = int(input("How many people initally infected?:"))
 R0 = 0
 # Everyone else, S0, is susceptible to infection initially.
 S0 = N - I0 - R0
@@ -34,13 +35,13 @@ def deriv(y, N, contact_rate, recovery_rate):
     dIdt = contact_rate * S * I / N - recovery_rate * I
     dRdt = recovery_rate * I
     return np.array([dSdt, dIdt, dRdt])
- 
+     
  
 fig = plt.figure(facecolor='w')
 ax = fig.add_subplot(111, facecolor='#dddddd', axisbelow=True)
 line = [ax.plot([], [], 'b', alpha=0.5, lw=2, label='Susceptible')[0]]
 line.append(ax.plot([], [], 'r', alpha=0.5, lw=2, label='Infected')[0])
-line.append(ax.plot([], [], 'g', alpha=0.5, lw=2, label='Recovered with immunity')[0])
+line.append(ax.plot([], [], 'g', alpha=0.5, lw=2, label='Removed')[0])
 ax.set_xlabel('Time /days')
 ax.set_ylabel('Number (1000s)')
 ax.set_ylim(0,1.2)
@@ -55,7 +56,13 @@ for spine in ('top', 'right', 'bottom', 'left'):
     
 X = np.empty((3,len(t_span)))*np.nan
 X[:,0] = (S0,I0,R0)
- 
+
+#def dataframe(): #trying to put the data into a data frame
+# rng = pd.date_range('19-03-2020', periods = 748, freq= 'D')
+# df = ({'Date':rng, 'No. hospital admissions': 'Infected'})
+# df.to_csv = ('FCP-project-1/simulation_data.csv')
+# print(df)
+
 # initialization function: plot the background of each frame
 def init():
     [line[i].set_data([], []) for i in range(3)]
@@ -74,7 +81,7 @@ def animate(i):
 anim =FuncAnimation(fig, animate, init_func=init,
                                frames=len(t_span)-1, interval=20, blit=True)
 plt.show()
-
-
+plt.savefig('practicesaving')
+#dataframe()
 
 ## 
