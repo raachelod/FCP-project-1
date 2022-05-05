@@ -11,7 +11,6 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import pandas as pd
-import ffmpeg
 
 # Finding itinital population N
 N = int(input("Type your inital population, N:")) #population - command line argument
