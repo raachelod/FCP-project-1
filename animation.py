@@ -12,25 +12,23 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import pandas as pd
 
-# Total population, N.
+# Finding itinital population N
 N = int(input("Type your inital population, N")) #population - command line argument
-# Initial number of infected and recovered individuals, I0 and R0.
+# Initial number of infected people I0
 I0 = int(input("How many people initally infected?"))  #infection - command line argument
-
-
+# Initial number of recovered people R0
 R0 = 0
-# Everyone else, S0, is susceptible to infection initially.
+# Resulting population initally susceptible
 S0 = N - I0 - R0
-# Contact rate, contact_rate, and mean recovery rate, recovery_rate, (in 1/days).
-#contact_rate, recovery_rate = 0.2, 1./10
+# Contact rate (contact_rate), and average recovery rate (recovery_rate) (in 1/days).
 contact_rate = 0.2
 recovery_rate = 1/10
 # A grid of time points (in days)
-t_span = np.linspace(0, 365, 365) #timespan over a year
+t_span = np.linspace(0, 100, 100) 
 h = t_span[1]-t_span[0]
  
  
-# The SIR model differential equations.
+# Differential equations to model SIR.
 def deriv(y, N, contact_rate, recovery_rate):
     S, I, R = y
     dSdt = -contact_rate * S * I / N
@@ -43,14 +41,14 @@ fig = plt.figure(facecolor='w')
 ax = fig.add_subplot(111, facecolor='#dddddd', axisbelow=True)
 line = [ax.plot([], [], 'b', alpha=0.5, lw=2, label='Susceptible')[0]]
 line.append(ax.plot([], [], 'r', alpha=0.5, lw=2, label='Infected')[0])
-line.append(ax.plot([], [], 'g', alpha=0.5, lw=2, label='Removed')[0])
+line.append(ax.plot([], [], 'g', alpha=0.5, lw=2, label='Recovered')[0])
 ax.set_xlabel('Time /days')
 ax.set_ylabel('Number (1000s)')
 ax.set_ylim(0,1.2)
 ax.set_xlim(0,len(t_span))
 ax.yaxis.set_tick_params(length=0)
 ax.xaxis.set_tick_params(length=0)
-ax.grid(visible=True, which='major', c='w', lw=2, ls='-')
+ax.grid(visible=True, which='major', c='w', lw=1.5, ls='-')
 legend = ax.legend()
 legend.get_frame().set_alpha(0.5)
 for spine in ('top', 'right', 'bottom', 'left'):
@@ -70,7 +68,7 @@ def init():
     [line[i].set_data([], []) for i in range(3)]
     return line
  
-#animation function.  This is called sequentially
+#animation function.  
 def animate(i):
     dX = deriv(X[:,i],N,contact_rate,recovery_rate)
     X[:,i+1] = X[:,i] + h*dX
@@ -89,7 +87,6 @@ anim =FuncAnimation(fig, animate, init_func=init,
 #create a specific animation that simulates the specific values from 'England' data 
 
 
-    
     
 
 plt.show()
