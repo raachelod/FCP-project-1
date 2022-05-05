@@ -10,10 +10,10 @@ import matplotlib.pyplot as plt
 
 
 #reading excel files 
-APR20AUG20 = pd.read_excel('Apr20-Aug20.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
-AUG20APR21 = pd.read_excel('Aug20-Apr21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
-APR21AUG21 = pd.read_excel('Ap21-Aug21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
-AUG21APR22 = pd.read_excel('Aug21-Apr22.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+APR20AUG20 = pd.read_csv('Apr20-Aug20.csv', index_col = 'Name', parse_dates= True, thousands= ',')
+AUG20APR21 = pd.read_csv('Aug20-Apr21.csv', index_col = 'Name', parse_dates= True, thousands= ',')
+APR21AUG21 = pd.read_csv('Ap21-Aug21.csv', index_col = 'Name', parse_dates= True, thousands= ',')
+AUG21APR22 = pd.read_csv('Aug21-Apr22.csv', index_col = 'Name', parse_dates= True, thousands= ',')
                                           
 #merging data by year
 APR20APR21 = pd.merge(APR20AUG20, AUG20APR21, on= 'Name')
