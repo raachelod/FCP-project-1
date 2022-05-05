@@ -13,11 +13,11 @@ Scipy
 ## Set up:
 clone the repository
 
-### for the simulation and its animated graphs:
-open a terminal
-python simulation.py
-follow the instructions
-
+### For the simulation and its animated graphs:
+open a terminal, 
+python simulation.py, 
+follow the instructions, 
+{
 
 
 ### for the NHS data line graph
