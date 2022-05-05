@@ -39,8 +39,8 @@ def deriv(y, N, contact_rate, recovery_rate):
  
 fig = plt.figure(facecolor='w')
 ax = fig.add_subplot(111, facecolor='#dddddd', axisbelow=True)
-line = [ax.plot([], [], 'b', alpha=0.5, lw=2, label='Susceptible')[0]]
-line.append(ax.plot([], [], 'r', alpha=0.5, lw=2, label='Infected')[0])
+line = [ax.plot([], [], 'y', alpha=0.5, lw=2, label='Susceptible')[0]]
+line.append(ax.plot([], [], 'orange', alpha=0.5, lw=2, label='Infected')[0])
 line.append(ax.plot([], [], 'g', alpha=0.5, lw=2, label='Recovered')[0])
 ax.set_xlabel('Days')
 ax.set_ylabel('Number of people (1000s)')
