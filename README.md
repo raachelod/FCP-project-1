@@ -27,4 +27,5 @@ Open a terminal <br />
 Run python creatingplot.py <br />
 This will produce 3 seperate graphs: 1) A single graph of multiple plots correlating to the different regions in England, each identified using the colour coordinated legend. 2) A graph showing the accumulation of all hospital admissions across England. and 3) Specifically showing the hospital admissions in the South West region (Bristol). The third graph will save in order to view later and be compared to our simulation. <br />
 
+### For the pie chart visualisation of data: (piechart.py)
 
