@@ -15,8 +15,7 @@ APR20AUG20 = pd.read_excel('Apr20-Aug20.xlsx', index_col = 'Name', parse_dates= 
 AUG20APR21 = pd.read_excel('Aug20-Apr21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
 APR21AUG21 = pd.read_excel('Ap21-Aug21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
 AUG21APR22 = pd.read_excel('Aug21-Apr22.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
-                     
-                     
+                                          
 #merging data by year
 APR20APR21 = pd.merge(APR20AUG20, AUG20APR21, on= 'Name')
 APR21APR22 = pd.merge(APR21NOV21, NOV21APR22, on= 'Name')
