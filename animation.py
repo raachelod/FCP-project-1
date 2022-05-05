@@ -11,20 +11,27 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import pandas as pd
+
+# Total population, N.
+N = int(input("Type your inital population, N")) #population - command line argument
+# Initial number of infected and recovered individuals, I0 and R0.
+I0 = int(input("How many people initally infected?"))  #infection - command line argument
+
  
 # Total population, N.
 N = int(input("Type your inital population, N:"))
 # Initial number of infected and recovered individuals, I0 and R0.
 I0 = int(input("How many people initally infected?:"))
+
 R0 = 0
 # Everyone else, S0, is susceptible to infection initially.
 S0 = N - I0 - R0
-# Contact rate, beta, and mean recovery rate, gamma, (in 1/days).
-#beta, gamma = 0.2, 1./10
+# Contact rate, contact_rate, and mean recovery rate, recovery_rate, (in 1/days).
+#contact_rate, recovery_rate = 0.2, 1./10
 contact_rate = 0.2
 recovery_rate = 1/10
 # A grid of time points (in days)
-t_span = np.linspace(0, 160, 160)
+t_span = np.linspace(0, 365, 365) #timespan over a year
 h = t_span[1]-t_span[0]
  
  
@@ -68,7 +75,7 @@ def init():
     [line[i].set_data([], []) for i in range(3)]
     return line
  
-# animation function.  This is called sequentially
+#animation function.  This is called sequentially
 def animate(i):
     dX = deriv(X[:,i],N,contact_rate,recovery_rate)
     X[:,i+1] = X[:,i] + h*dX
@@ -80,6 +87,20 @@ def animate(i):
  
 anim =FuncAnimation(fig, animate, init_func=init,
                                frames=len(t_span)-1, interval=20, blit=True)
+<<<<<<< HEAD
+=======
+
+
+#creating grid animation 
+#potentially create barchart
+#create a specific animation that simulates the specific values from 'England' data 
+
+
+    
+    
+
+plt.show()
+>>>>>>> d434d02b1045196bbaa9ae8724984d089648de81
 plt.savefig('practicesaving')
 plt.show()
 
