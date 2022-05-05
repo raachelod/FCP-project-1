@@ -10,46 +10,19 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-import argparse
-
-parser = argparse.ArgumentParser(description= 'Model an epidemic.')
-parser.add_argument('--population', metavar=('N'), type=int, default=1000, 
-                    help=('Inital population at start of simulate'))
-parser.add_argument('--infected', metavar=('I0'), type=int, default = 1,
-                    help=('Initial number of infected people'))
-parser.add_argument('--duration', metavar=('T'), type=int, default=1095,
-                    help=('Simulate for T days.'))
-parser.add_argument('--file', metavar='N', type=str, default=None,
-                    help='Filename to save to instead of showing on screen')
-parser.add_argument('--plot', action='store_true',
-                    help='Generate plots instead of an animation')
-args = parser.parse_args(args)     
-
-#if args.plot:
- #  fig = plot_simulation(simulation, args.duration)
-#
- #  if args.file is None:
-  #          #  python simulator.py --plot
-   #    plt.show()
-   #else:
-    #   #  python simulator.py --plot --file=plot.pdf
-    #   fig.savefig(args.file)
-#else:
- ##   animation = Animation(simulation, args.duration)
-   
-   # if args.file is None:
-    #        #  python simulator.py
-      #      animation.show()
-   # else:
-            #  python simulator.py --file=animation.mp4
-            #
-            # NOTE: this needs ffmpeg to be installed.
-    #        animation.save(args.file)            
+import pandas as pd
 
 # Total population, N.
 N = int(input("Type your inital population, N")) #population - command line argument
 # Initial number of infected and recovered individuals, I0 and R0.
 I0 = int(input("How many people initally infected?"))  #infection - command line argument
+
+ 
+# Total population, N.
+N = int(input("Type your inital population, N:"))
+# Initial number of infected and recovered individuals, I0 and R0.
+I0 = int(input("How many people initally infected?:"))
+
 R0 = 0
 # Everyone else, S0, is susceptible to infection initially.
 S0 = N - I0 - R0
@@ -69,13 +42,13 @@ def deriv(y, N, contact_rate, recovery_rate):
     dIdt = contact_rate * S * I / N - recovery_rate * I
     dRdt = recovery_rate * I
     return np.array([dSdt, dIdt, dRdt])
- 
+     
  
 fig = plt.figure(facecolor='w')
 ax = fig.add_subplot(111, facecolor='#dddddd', axisbelow=True)
 line = [ax.plot([], [], 'b', alpha=0.5, lw=2, label='Susceptible')[0]]
 line.append(ax.plot([], [], 'r', alpha=0.5, lw=2, label='Infected')[0])
-line.append(ax.plot([], [], 'g', alpha=0.5, lw=2, label='Recovered with immunity')[0])
+line.append(ax.plot([], [], 'g', alpha=0.5, lw=2, label='Removed')[0])
 ax.set_xlabel('Time /days')
 ax.set_ylabel('Number (1000s)')
 ax.set_ylim(0,1.2)
@@ -90,7 +63,13 @@ for spine in ('top', 'right', 'bottom', 'left'):
     
 X = np.empty((3,len(t_span)))*np.nan
 X[:,0] = (S0,I0,R0)
- 
+
+#def dataframe(): #trying to put the data into a data frame
+# rng = pd.date_range('19-03-2020', periods = 748, freq= 'D')
+# df = ({'Date':rng, 'No. hospital admissions': 'Infected'})
+# df.to_csv = ('FCP-project-1/simulation_data.csv')
+# print(df)
+
 # initialization function: plot the background of each frame
 def init():
     [line[i].set_data([], []) for i in range(3)]
@@ -119,7 +98,7 @@ anim =FuncAnimation(fig, animate, init_func=init,
     
 
 plt.show()
-
-
+plt.savefig('practicesaving')
+#dataframe()
 
 ## 
