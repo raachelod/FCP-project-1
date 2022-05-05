@@ -6,6 +6,20 @@ Created on Thu May  5 14:37:39 2022
 @author: rachelodwyer
 """
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import proplot as pplt
+
+
+
+#reading excel files 
+APR20AUG20 = pd.read_excel('Apr20-Aug20.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+AUG20APR21 = pd.read_excel('Aug20-Apr21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+APR21AUG21 = pd.read_excel('Ap21-Aug21.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+AUG21APR22 = pd.read_excel('Aug21-Apr22.xlsx', index_col = 'Name', parse_dates= True, thousands= ',')
+
+
+
 
 #pie chart of data (england)
 
