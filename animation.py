@@ -12,8 +12,9 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import pandas as pd
 
+
 # Finding itinital population N
-N = int(input("Type your inital population, N")) #population - command line argument
+N = int(input("Type your inital population, N:")) #population - command line argument
 # Initial number of infected people I0
 I0 = int(input("How many people initally infected?"))  #infection - command line argument
 # Initial number of recovered people R0
@@ -24,7 +25,7 @@ S0 = N - I0 - R0
 contact_rate = 0.2
 recovery_rate = 1/10
 # A grid of time points (in days)
-t_span = np.linspace(0, 100, 100) 
+t_span = np.linspace(0, 150, 150) #timespan actual data covers
 h = t_span[1]-t_span[0]
  
  
@@ -42,9 +43,9 @@ ax = fig.add_subplot(111, facecolor='#dddddd', axisbelow=True)
 line = [ax.plot([], [], 'b', alpha=0.5, lw=2, label='Susceptible')[0]]
 line.append(ax.plot([], [], 'r', alpha=0.5, lw=2, label='Infected')[0])
 line.append(ax.plot([], [], 'g', alpha=0.5, lw=2, label='Recovered')[0])
-ax.set_xlabel('Time /days')
-ax.set_ylabel('Number (1000s)')
-ax.set_ylim(0,1.2)
+ax.set_xlabel('Days')
+ax.set_ylabel('Number of people (1000s)')
+ax.set_ylim(0,6)
 ax.set_xlim(0,len(t_span))
 ax.yaxis.set_tick_params(length=0)
 ax.xaxis.set_tick_params(length=0)
@@ -78,7 +79,7 @@ def animate(i):
     line[2].set_data(t_span, X[2,:]/1000)
     return line
  
-anim =FuncAnimation(fig, animate, init_func=init,
+animation =FuncAnimation(fig, animate, init_func=init,
                                frames=len(t_span)-1, interval=20, blit=True)
 
 
@@ -87,10 +88,7 @@ anim =FuncAnimation(fig, animate, init_func=init,
 #create a specific animation that simulates the specific values from 'England' data 
 
 
-    
-
-plt.show()
-plt.savefig('practicesaving')
+animation.save('England_simulated_animation.gif')
 plt.show()
 
 #dataframe()
