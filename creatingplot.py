@@ -30,19 +30,19 @@ APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name')
 APR20APR22 = APR20APR22.T
 england = APR20APR22['ENGLAND']
 east_england = APR20APR22['East of England']
-east_england.plot(label = 'East England')
+east_england.plot(label = 'East England', lw = 1 )
 london = APR20APR22['London']
-london.plot(label = 'London')
+london.plot(label = 'London', lw = 1 )
 midlands = APR20APR22['Midlands']
-midlands.plot(label = 'Midlands')
+midlands.plot(label = 'Midlands', lw = 1 )
 ne_yorkshire = APR20APR22['North East and Yorkshire' ]
-ne_yorkshire.plot(label = 'North East and Yorkshire')
+ne_yorkshire.plot(label = 'North East and Yorkshire', lw = 1 )
 northwest = APR20APR22['North West']
-northwest.plot(label = 'North West')
+northwest.plot(label = 'North West', lw = 1 )
 southeast = APR20APR22['South East']
-southeast.plot(label = 'South East')
+southeast.plot(label = 'South East', lw = 1 )
 southwest = APR20APR22['South West']
-southwest.plot(label = 'South West')
+southwest.plot(label = 'South West', lw = 1 )
 plot1 = plt.figure(1)
 plt.title('Hospital admissions during COVID-19 across UK')
 plt.xlabel('Months during COVID-19')
@@ -50,13 +50,13 @@ plt.ylabel('Number of hospital admissions')
 plt.legend()
 
 plot2 = plt.figure(2)
-plt.plot(england, color = 'blue')
+plt.plot(england, color = 'blue', lw = 1)
 plt.title('Hospital admissions during COVID-19 in England')
 plt.xlabel('Months during COVID-19')
 plt.ylabel('Number of hospital admissions')
    
 plot3 = plt.figure(3)
-plt.plot(southwest, color = 'grey' )
+plt.plot(southwest, color = 'grey', lw = 1)
 plt.title('Hospital admissions during COVID-19 in South West England')
 plt.xlabel('Months during COVID-19')
 plt.ylabel('Number of hospital admissions')
@@ -64,3 +64,6 @@ plt.ylabel('Number of hospital admissions')
 
 
 plt.show()
+
+
+

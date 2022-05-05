@@ -87,8 +87,6 @@ def animate(i):
  
 anim =FuncAnimation(fig, animate, init_func=init,
                                frames=len(t_span)-1, interval=20, blit=True)
-<<<<<<< HEAD
-=======
 
 
 #creating grid animation 
@@ -100,7 +98,6 @@ anim =FuncAnimation(fig, animate, init_func=init,
     
 
 plt.show()
->>>>>>> d434d02b1045196bbaa9ae8724984d089648de81
 plt.savefig('practicesaving')
 plt.show()
 
