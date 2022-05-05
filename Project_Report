@@ -1,0 +1,37 @@
+creatingplot.py 
+
+The purpose of the creatingplot.py script is to produce a data visualisation of real life data of hospital admissions across the UK during the period of COVID-19. https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-hospital-activity/
+
+The data we have sourced was in the format of 4 seperate files, each compiled of data over different continuous 6 month periods. The first step of this code is to simply read the (csv) file using the pd.read_csv function. The next step was to merge the 4 files into a single data frame that can be accessed throughout the rest of the script and other scripts. This is identified as 'APR20APR22' which is a single file holding the number of hospital admissions every single day across 2 years.
+
+APR20APR21 = pd.merge(APR20AUG20, AUG20APR21, on= 'Name')
+APR21APR22 = pd.merge(APR21AUG21, AUG21APR22, on= 'Name')
+APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name')
+
+Using 'on = 'Name'' ensures there are no repitions of the 'Name' category and so the data from each file is simply added as extra columns on the right hand side of the df, like a timeseries. 
+
+The following step is to save the pandas dataframe as a csv file to the working directory, to be viewed and accessed later on. This step of the code is optional when running the python file. 
+(ADD COPY OF APR20APR22 DATAFRAME)
+Next we begin to visualise the data as a line graph. Here we code for 3 seperate graphs which can be accessed individually:
+First we plot on a single graph all regions of the UK - along the y-axis we have 'Number of hospital admissions' and along the x-axis 'Months during COVID-19'. This extracts data from our dataframe for every day, plotting it accordingly. 
+As you can see from the outputted graph, it plots every region as a differently coloured line in order to distinguish between them, accompanied by a legend for referencing. 
+The second of the graphs is plotting the 'England' data from the dataframe, which is the accumulated number admissions across all regions. This is presented better sepeteraly to not force the other regions to be squashed together. 
+The third graph specifically plots the 'South West' region, as this is the particular area we chose (Bristol are) to analyse and compare with our simulation later on. We have maintained the colour of the line the same as the first graph in order to keep it distinguishable. We have saved this particular graph in order to be called again later when wantint to compare to our model. 
+
+
+animation.py
+
+The purpose of the animation.py file is to produce an animated line plot of our coded simulation. First we assign our parameters: 
+N = int(input("Type your inital population, N")) 
+I0 = int(input("How many people initally infected?"))
+These two variables, N, the inital size of population, and I0, inital number of covid cases, have been set to be inputted by the person running the code. This allows for the simulation to run on different variables. 
+The other variables used in our code have been decided by us as constants. 
+The deriv function:
+def deriv(y, N, contact_rate, recovery_rate):
+    S, I, R = y
+    dSdt = -contact_rate * S * I / N
+    dIdt = contact_rate * S * I / N - recovery_rate * I
+    dRdt = recovery_rate * I
+    return np.array([dSdt, dIdt, dRdt])
+simuates how an epidemic unfolds using differential equaions. 
+(TALK MORE ABOUT THIS)

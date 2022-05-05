@@ -29,7 +29,7 @@ S0 = N - I0 - R0
 # Contact rate, contact_rate, and mean recovery rate, recovery_rate, (in 1/days).
 #contact_rate, recovery_rate = 0.2, 1./10
 contact_rate = 0.2
-recovery_rate = 1./10
+recovery_rate = 1/10
 # A grid of time points (in days)
 t_span = np.linspace(0, 365, 365) #timespan over a year
 h = t_span[1]-t_span[0]
@@ -87,6 +87,8 @@ def animate(i):
  
 anim =FuncAnimation(fig, animate, init_func=init,
                                frames=len(t_span)-1, interval=20, blit=True)
+<<<<<<< HEAD
+=======
 
 
 #creating grid animation 
@@ -98,7 +100,10 @@ anim =FuncAnimation(fig, animate, init_func=init,
     
 
 plt.show()
+>>>>>>> d434d02b1045196bbaa9ae8724984d089648de81
 plt.savefig('practicesaving')
+plt.show()
+
 #dataframe()
 
 ## 
