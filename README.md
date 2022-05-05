@@ -26,6 +26,8 @@ The values that are requested by user input are used to simulate data plots as a
 Open a terminal <br />
 Run python creatingplot.py <br />
 This will produce 3 seperate graphs: 1) A single graph of multiple plots correlating to the different regions in England, each identified using the colour coordinated legend. 2) A graph showing the accumulation of all hospital admissions across England. and 3) Specifically showing the hospital admissions in the South West region (Bristol). The third graph will save in order to view later and be compared to our simulation. <br />
+This file has no oppurtunity for inputted values as it just reads data from official csv files. The code merges the 4 seperate files the raw data is stored as into a single pandas dataframe in order to be more easily accessed and used. The code also saves this merged df as a csv file. <br /> 
+It then follows to exctract the specific data from the different rows (Names of region) and plots them as individual lines on the same graph. 
 
 ### For the pie chart visualisation of data: (piechart.py)
 
