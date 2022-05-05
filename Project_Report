@@ -1,4 +1,4 @@
-creatingplot.py 
+creatingplot.py :
 
 The purpose of the creatingplot.py script is to produce a data visualisation of real life data of hospital admissions across the UK during the period of COVID-19. https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-hospital-activity/
 
@@ -18,8 +18,7 @@ As you can see from the outputted graph, it plots every region as a differently 
 The second of the graphs is plotting the 'England' data from the dataframe, which is the accumulated number admissions across all regions. This is presented better sepeteraly to not force the other regions to be squashed together. 
 The third graph specifically plots the 'South West' region, as this is the particular area we chose (Bristol are) to analyse and compare with our simulation later on. We have maintained the colour of the line the same as the first graph in order to keep it distinguishable. We have saved this particular graph in order to be called again later when wantint to compare to our model. 
 
-
-animation.py
+animation.py :
 
 The purpose of the animation.py file is to produce an animated line plot of our coded simulation. First we assign our parameters: 
 N = int(input("Type your inital population, N")) 
@@ -33,17 +32,18 @@ def deriv(y, N, contact_rate, recovery_rate):
     dIdt = contact_rate * S * I / N - recovery_rate * I
     dRdt = recovery_rate * I
     return np.array([dSdt, dIdt, dRdt])
-simuates how an epidemic unfolds using differential equaions. 
-(TALK MORE ABOUT THIS)
+simuates how an epidemic unfolds using differential equaions.
+Our aim is to compare the our simulated model to actual data by specifically choosing inputs that reflect the state of the 'South West' region of the UK, i.e the total population of this region at the beginning of 2020 and the initial number of cases from our data frame. 
+This hopes to show how accurate our model is when applying it to the Bristol area. 
 
-merged_data.csv
+merged_data.csv :
 This is the merged data file which has been produced and saved in the creatingplot.py file.
 
-southwest_data.pdf
+southwest_data.pdf :
 This is a saved copy of the graph showing data from specifically the South West region of the UK. This graph is used to compare with the animation produced by our simulation. Clearly it shows that there are many limitations to our model, as it lacks the fluxuations over time and noticable peaks in admissions. This could be rectified by spending more time complicating our model and adding more changing variables to account for changing circumstances that would affect the rate of spread in the real world. (i.e our simulation doesn't account for the lockdown period and the changes in freedom rules which impacted the spread.)
 
 
-piechart.py
+piechart.py :
 
 This file includes several pie charts: 4 pie charts based on monthly data and 1 nested piechart.
 The 4 pie charts are a visual representation of total hospitalizations in England by month:
