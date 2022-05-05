@@ -41,9 +41,6 @@ This is the merged data file which has been produced and saved in the creatingpl
 
 southwest_data.pdf :
 This is a saved copy of the graph showing data from specifically the South West region of the UK. This graph is used to compare with the animation produced by our simulation.
-Clearly it shows that there are many limitations to our model, as it lacks the fluxuations over time and noticable peaks in admissions. 
-This could be rectified by spending more time complicating our model and adding more changing variables to account for changing circumstances that would affect the rate of spread in the real world. (i.e our simulation doesn't account for the lockdown period and the changes in freedom rules which impacted the spread.)
-
 
 piechart.py :
 
@@ -58,8 +55,14 @@ We imported proplot in order to have a larger colorscale for piecharts that had 
 The nested piechart represents hospitalizations by year by region. The outer piechart is the total hospitalizations for the year while the inner piechart is the number of hospitalizations by region for that given year.
 We merged the data in order to calculate the number of hospitalizations for the whole year.
 
+Limitations of our model:
+To analyse the accuracy of our simulated animation, we compare with the graph created by the real life data we have sourced.
+Clearly it shows that there are many limitations to our model, as it lacks the fluxuations over time and noticable peaks in admissions. 
+This could be rectified by spending more time complicating our model and adding more changing variables to account for changing circumstances that would affect the rate of spread in the real world. (i.e our simulation doesn't account for the lockdown period and the changes in freedom rules which impacted the spread.)
+For example we could have the infection rate working in waves by making the contact a function of time to reflect the changing lockdown rules in real life. 
+Furthermore to make our code more readable and adaptable, next time we could compile particular functions into classes which could then be accessed individually to add complexity and edit when desired. 
 
-
+The main issue in our project was that we focused too much time on collecting data, and figuring out how to present it accordingly, before realising this wasn't the main aim of the task. This left limited time to work on our simulation and therefore resulted in it lacking multiple layers to analyse. 
 
 
 
