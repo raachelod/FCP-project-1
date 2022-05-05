@@ -20,7 +20,7 @@ APR20APR21 = pd.merge(APR20AUG20, AUG20APR21, on= 'Name')
 APR21APR22 = pd.merge(APR21AUG21, AUG21APR22, on= 'Name')
 APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name')
 
-print(APR20APR22)
+#print(APR20APR22)
 
 #saving the merged data file to reuse and/or view seperately 
 #APR20APR22.to_csv('merged_data.csv')
