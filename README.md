@@ -44,5 +44,5 @@ This is the merged data frame of the 4 individual csv files 'Apr20-Aug20.csv','A
 ### southwest_data.pdf
 Open a terminal 
 Run COVID Admissions in South West England.ipynb
-This will produce 2 graphs, which both plot hospital admissions from Covid 19 in the South West Region, with one graph as an animation containing data spanning from April 2020 to April 2022, with data aquired from the merged_data.csv file. This graph allows a comparison between itself and the simulation graph. These graphs both read data form a database, however and so do not require any inputted values by the user to function. This graph does not average its data on admission rates, instead plotting the data for each day recorded accordingly. 
+This will produce 2 graphs, which both plot hospital admissions from Covid 19 in the South West Region, with one graph as an animation containing data spanning from April 2020 to April 2022, with data aquired from the merged_data.csv file. This graph allows a comparison between itself and the simulation graph. These graphs both read data from the csv file, however, and so do not require any inputted values by the user to function. This graph does not average its data on admission rates, instead plotting the data for each day recorded accordingly. 
 This is the saved graph plotting only the hospital admissions in the South West region. 
