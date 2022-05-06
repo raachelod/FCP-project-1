@@ -41,7 +41,7 @@ This file consists of imported data and thus, has no opportunity for inputted va
 ### merged_data.csv
 This is the merged data frame of the 4 individual csv files 'Apr20-Aug20.csv','Aug20-Apr21.csv', 'Ap21-Aug21.csv', 'Aug21-Apr22.csv' (which can all be accessed on the repository) that has been converted into a csv file. 
 
-### southwest_data.pdf
+### For the southwest_data.pdf: (COVID Admissions in South West England.ipynb)
 Open a terminal 
 Run COVID Admissions in South West England.ipynb
 This will produce 2 graphs, which both plot hospital admissions from Covid 19 in the South West Region, with one graph as an animation containing data spanning from April 2020 to April 2022, with data aquired from the merged_data.csv file. This graph allows a comparison between itself and the simulation graph. These graphs both read data from the csv file, however, and so do not require any inputted values by the user to function. This graph does not average its data on admission rates, instead plotting the data for each day recorded accordingly. 
