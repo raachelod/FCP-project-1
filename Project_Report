@@ -1,0 +1,80 @@
+creatingplot.py :
+
+The purpose of the creatingplot.py script is to produce a data visualisation of real life data of hospital admissions across the UK during the period of COVID-19. https://www.england.nhs.uk/statistics/statistical-work-areas/covid-19-hospital-activity/
+
+The data we have sourced was in the format of 4 seperate files, each compiled of data over different continuous 6 month periods. The first step of this code is to simply read the (csv) file using the pd.read_csv function. The next step was to merge the 4 files into a single data frame that can be accessed throughout the rest of the script and other scripts. This is identified as 'APR20APR22' which is a single file holding the number of hospital admissions every single day across 2 years.
+
+APR20APR21 = pd.merge(APR20AUG20, AUG20APR21, on= 'Name')
+APR21APR22 = pd.merge(APR21AUG21, AUG21APR22, on= 'Name')
+APR20APR22 =pd.merge(APR20APR21,APR21APR22, on = 'Name')
+
+Using 'on = 'Name'' ensures there are no repitions of the 'Name' category and so the data from each file is simply added as extra columns on the right hand side of the df, like a timeseries. 
+
+The following step is to save the pandas dataframe as a csv file to the working directory, to be viewed and accessed later on. This step of the code is optional when running the python file. 
+
+Next we begin to visualise the data as a line graph. Here we code for 3 seperate graphs which can be accessed individually:
+First we plot on a single graph all regions of the UK - along the y-axis we have 'Number of hospital admissions' and along the x-axis 'Months during COVID-19'. This extracts data from our dataframe for every day, plotting it accordingly. 
+As you can see from the outputted graph, it plots every region as a differently coloured line in order to distinguish between them, accompanied by a legend for referencing. 
+The second of the graphs is plotting the 'England' data from the dataframe, which is the accumulated number admissions across all regions. This is presented better sepeteraly to not force the other regions to be squashed together. 
+The third graph specifically plots the 'South West' region, as this is the particular area we chose (Bristol are) to analyse and compare with our simulation later on. We have maintained the colour of the line the same as the first graph in order to keep it distinguishable. We have saved this particular graph in order to be called again later when wantint to compare to our model. 
+
+animation.py :
+
+The purpose of the animation.py file is to produce an animated line plot of our coded simulation. First we assign our parameters: 
+N = int(input("Type your inital population, N")) 
+I0 = int(input("How many people initally infected?"))
+These two variables, N, the inital size of population, and I0, inital number of covid cases, have been set to be inputted by the person running the code. This allows for the simulation to run on different variables. 
+The other variables used in our code have been decided by us as constants. 
+The deriv function:
+def deriv(y, N, contact_rate, recovery_rate):
+    S, I, R = y
+    dSdt = -contact_rate * S * I / N
+    dIdt = contact_rate * S * I / N - recovery_rate * I
+    dRdt = recovery_rate * I
+    return np.array([dSdt, dIdt, dRdt])
+simuates how an epidemic unfolds using differential equaions.
+Our aim is to compare the our simulated model to actual data by specifically choosing inputs that reflect the state of the 'South West' region of the UK, i.e the total population of this region at the beginning of 2020 and the initial number of cases from our data frame. 
+This hopes to show how accurate our model is when applying it to the Bristol area. 
+Next we label the different lines we want to plot and set up the format of the graph. 
+The '__init__' function sets up the inital background for the frames in our animation, which we have kept relatively simple. 
+The 'animate' function follows to create the animation using the outputs from the 'deriv' differential equations. 
+
+
+merged_data.csv :
+This is the merged data file which has been produced and saved in the creatingplot.py file.
+
+southwest_data.pdf :
+This is a saved copy of the graph showing data from specifically the South West region of the UK. This graph is used to compare with the animation produced by our simulation.
+
+piechart.py :
+
+This file includes several pie charts: 4 pie charts based on monthly data and 1 nested piechart.
+The 4 pie charts are a visual representation of total hospitalizations in England by month:
+a) Pie Chart #1 = April 2020 to August 2020
+b) Pie Chart #2 = August 2020 to April 2021
+c) Pie Chart #3 = April 2021 to August 2021
+d) Pie Chart #4 = August 2021 to April 2022
+We imported proplot in order to have a larger colorscale for piecharts that had more variables (e.g. more months in the data).
+
+The nested piechart represents hospitalizations by year by region. The outer piechart is the total hospitalizations for the year while the inner piechart is the number of hospitalizations by region for that given year.
+We merged the data in order to calculate the number of hospitalizations for the whole year.
+
+Limitations of our model/Comparison to NHS data:
+To analyse the accuracy of our simulated animation, we compare with the graph created by the real life data we have sourced.
+Clearly it shows that there are many limitations to our model, as it lacks the fluxuations over time and noticable peaks in admissions. 
+This could be rectified by spending more time complicating our model and adding more changing variables to account for changing circumstances that would affect the rate of spread in the real world. (i.e our simulation doesn't account for the lockdown period and the changes in freedom rules which impacted the spread.)
+For example we could have the infection rate working in waves by making the contact a function of time to reflect the changing lockdown rules in real life. 
+Despite this, the peak in infected cases in our simulated model when ran with the inputs instructed to compare with South West region data occurs at 
+Furthermore to make our code more readable and adaptable, next time we could compile particular functions into classes which could then be accessed individually to add complexity and edit when desired. 
+
+Comparison:
+When running the simulation.py with the instructed input values to simulate for England, we produce a graph which suggests a peak in infected case around 45 days. This reflects the initial peak shown on on figure 2 produced by the creatingplot.py - plotting the England data. The limitation is that our model doesn't account for future peaks shown by the NHS data.
+Similarly, when inputting the values instructed for the South West region, the infected persons peak at around 65 days - also generally replicating the inital peak in the NHS data for 'South West' region. 
+
+The main issue in our project was that we focused too much time on collecting data, and figuring out how to present it accordingly, before realising this wasn't the main aim of the task. This left limited time to work on our simulation and therefore resulted in it lacking multiple layers to analyse. 
+Furthermore the raw data we have used is explicitly hospital admissions of patients with COVID-19, whereas our simulation only computes the number of infections. Although this produces a difference in the actual values generated, the general trend and pattern of the plot should remain generally similar. 
+
+
+
+
+

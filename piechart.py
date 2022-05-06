@@ -6,26 +6,47 @@ Created on Thu May  5 14:37:39 2022
 @author: rachelodwyer
 """
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+#reading excel files 
+APR20AUG20 = pd.read_csv('Apr20-Aug20.csv', index_col = 'Name', parse_dates= True, thousands= ',')
+AUG20APR21 = pd.read_csv('Aug20-Apr21.csv', index_col = 'Name', parse_dates= True, thousands= ',')
+APR21AUG21 = pd.read_csv('Ap21-Aug21.csv', index_col = 'Name', parse_dates= True, thousands= ',')
+AUG21APR22 = pd.read_csv('Aug21-Apr22.csv', index_col = 'Name', parse_dates= True, thousands= ',')
+
 
 #pie chart of data (england)
 
 #APR20AUG20
 
 data_1 = APR20AUG20
-data_MAR20 = [d[1:13] for d in APR20AUG20[2]]
-data_APR20 = [d[14:43] for d in APR20AUG20[2]]
-data_MAY20 = [d[44:74] for d in APR20AUG20[2]]
-data_JUN20 = [d[75:104] for d in APR20AUG20[2]]
-data_JUL20 = [d[105:135] for d in APR20AUG20[2]]
-data_1 = [data_MAR20, data_APR20, data_MAY20, data_JUN20, data_JUL20]
+d_MAR20 = [d[1:13] for d in APR20AUG20[2]]
+d_APR20 = [d[14:43] for d in APR20AUG20[2]]
+d_MAY20 = [d[44:74] for d in APR20AUG20[2]]
+d_JUN20 = [d[75:104] for d in APR20AUG20[2]]
+d_JUL20 = [d[105:135] for d in APR20AUG20[2]]
+
+# adding daily data for total monthly data
+
+d_MAR20 = sum(d_MAR20)
+d_APR20 = sum(d_APR20)
+d_MAY20 = sum(d_MAY20)
+d_JUN20 = sum(d_JUN20)
+d_JUL20 = sum(d_JUL20)
+
+
+data_1 = [d_MAR20, d_APR20, d_MAY20, d_JUN20, d_JUL20]
 
 months = ['March 2020', 'April 2020', 'May 2020', 'June 2020', 'July 2020']
 
-colors = ("orange", "cyan", "brown", "indigo", "beige")
+colors = ("pink2", "violet2", "blue2", "lime3", "indigo2")
 fig_1, x = plt.plot(figsize = (10,7))
-fig_1 = x.pie(data_1
-              labels = months
-              colors = colors)
+fig_1 = x.pie(data_1,
+              label = 'months',
+              color = 'colors')
 x.legend(title = "Month",
            loc = "centre left")
 x.title("Hospitalizations by Month in England from April 2020 to August 2020")
@@ -45,16 +66,30 @@ data_JAN21 = [d[152:183] for d in AUG20APR21[2]]
 data_FEB21 = [d[184:201] for d in AUG20APR21[2]]
 data_MAR21 = [d[202:232] for d in AUG20APR21[2]]
 data_APR21 = [d[233:262] for d in AUG20APR21[2]]
+
+
+# adding daily data for total monthly data
+
+data_AUG20 = sum(data_AUG20)
+data_SEPT20 = sum(data_SEPT20)
+data_OCT20 = sum(data_OCT20)
+data_NOV20 = sum(data_NOV20)
+data_DEC20 = sum(data_DEC20)
+data_JAN21 = sum(data_JAN21)
+data_FEB21 = sum(data_FEB21)
+data_MAR21 = sum(data_MAR21)
+data_APR21 = sum(data_APR21)
+
+
 data_2 = [data_AUG20, data_SEPT20, data_OCT20, data_NOV20, data_DEC20, data_JAN21, data_FEB21, data_MAR21, data_APR21]
 
 months = ['August 2020', 'September 2020', 'October 2020', 'November 2020', 'December 2020', 'January 2021', 'February 2021', 'March 2021', 'April 2021']
 
-colors = pplt.colors()
-colors = ("pink2", "violet2", "blue2", "lime3", "indigo2", "peach", "pastel blue", "light violet", "lime olive")
+olors = ("pink2", "violet2", "blue2", "lime3", "indigo2", "peach", "pastel blue", "light violet", "lime olive")
 fig_2, y = plt.plot(figsize = (10,7))
-fig_2 = y.pie(data_2
-              labels = months
-              colors = colors)
+fig_2 = y.pie(data_2,
+              label = 'months',
+              color = 'colors')
 y.legend(title = "Month",
            loc = "centre left")
 y.title("Hospitalizations by Month in England from August 2020 to April 2021")
@@ -71,15 +106,26 @@ data_JUN21 = [d[44:74] for d in APR21AUG21[2]]
 data_JUL21 = [d[75:104] for d in APR21AUG21[2]]
 data_AUG21 = [d[105:135] for d in APR21AUG21[2]]
 data_SEPT21 = [d[105:135] for d in APR21AUG21[2]]
+
+
+# adding daily data for total monthly data
+
+data_APR21 = sum(data_APR21)
+data_MAY21 = sum(data_MAY21)
+data_JUN21 = sum(data_JUN21)
+data_JUL21 = sum(data_JUL21)
+data_AUG21 = sum(data_AUG21)
+data_SEPT21 = sum(data_SEPT21)
+
+
 data_3 = [data_APR21, data_MAY21, data_JUN21, data_JUL21, data_AUG21, data_SEPT21]
 
 months = ['April 2021', 'May 2021', 'June 2021', 'July 2021', 'August 2021', 'September 2021']
 
-colors = pplt.colors()
 colors = ("pink2", "violet2", "blue2", "lime3", "indigo2", "peach")
 fig_3, z = plt.plot(figsize = (10,7))
-fig_3 = z.pie(data_3
-              labels = months
+fig_3 = z.pie(data_3,
+              label = months,
               colors = colors)
 z.legend(title = "Month",
            loc = "centre left")
@@ -102,11 +148,10 @@ data_3 = [data_OCT21, data_NOV21, data_DEC21, data_JAN22, data_FEB22, data_MAR22
 
 months = ['August 2021', 'September 2021', 'October 2021', 'November 2021', 'December 2021', 'January 2022']
 
-colors = pplt.colors()
 colors = ("pink2", "violet2", "blue2", "lime3", "indigo2", "peach", "pastel blue")
 fig_4, zz = plt.plot(figsize = (10,7))
-fig_4 = zz.pie(data_4
-              labels = months
+fig_4 = zz.pie(data_4,
+              label = months,
               colors = colors)
 zz.legend(title = "Month",
            loc = "centre left")
@@ -114,6 +159,15 @@ zz.title("Hospitalizations by Month in England from April 2021 to September 2021
 plt.show()
 
 
+# adding daily data for total monthly data
+
+data_OCT21 = sum(data_OCT21)
+data_NOV21 = sum(data_NOV21)
+data_DEC21 = sum(data_DEC21)
+data_JAN22 = sum(data_JAN22)
+data_FEB22 = sum(data_FEB22)
+data_MAR22 = sum(data_MAR22)
+data_APR22 = sum(data_APR22)
 
 
 
@@ -121,7 +175,7 @@ plt.show()
 #nested pie chart by year
 
 APR20APR21 = pd.merge(APR20AUG20, AUG20APR21, on= 'Name')
-APR21APR22 = pd.merge(APR21NOV21, NOV21APR22, on= 'Name')
+APR21APR22 = pd.merge(APR21AUG21, AUG21APR22, on= 'Name')
 
 #data
 
@@ -148,11 +202,9 @@ sw2122_total = [d[1:] for d in APR21APR22[10]]
 
 regions = ['East England', 'London', 'Midlands', 'Northeast Yorkshire', 'Northwest', 'Southeast', 'Southwest']
 
-a2021 = east2021_total, london2021_total, midlands2021_total,
-    neyork2021_total, nw2021_total, se2021_total, sw2021_total
+a2021 = east2021_total, london2021_total, midlands2021_total, neyork2021_total, nw2021_total, se2021_total, sw2021_total
 
-b2122 = east2122_total, london2122_total, midlands2122_total,
-        neyork2122_total, nw2122_total, se2122_total, sw2122_total
+b2122 = east2122_total, london2122_total, midlands2122_total, neyork2122_total, nw2122_total, se2122_total, sw2122_total
            
 data_nest = np.array([a2021], [b2122])
 
